@@ -83,22 +83,26 @@ The blocks support signaling and mouse actions where applicable.
 
 ## nsxiv
 
-nsxiv configuration and helpers are included for image handling.
+The repository contains configuration and helper files for `nsxiv`.
 
-Relevant files include:
+`nsxiv` itself is **compiled from source from my GitHub repository** by `dwm-install`; it is not installed from the Arch Linux repositories.
 
-```text
-.config/nsxiv/exec/key-handler
-.local/bin/nsxiv-rifle
-.local/share/applications/nsxiv.desktop
-```
+Source:
+
+`https://github.com/rabbi-lion/nsxiv`
+
+Relevant dotfiles include:
+
+- `.config/nsxiv/exec/key-handler`
+- `.local/bin/nsxiv-rifle`
+- `.local/share/applications/nsxiv.desktop`
 
 The setup provides:
 
 - directory-aware image opening
 - Thunar integration
 - Trash support
-- image MIME associations
+- common image MIME associations
 - keyboard handling
 
 Stock nsxiv scaling behavior is preserved.
