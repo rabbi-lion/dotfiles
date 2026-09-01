@@ -81,11 +81,19 @@ internet | brightness | volume | battery | clock
 
 The blocks support signaling and mouse actions where applicable.
 
+## Appearance
+
+No third-party GTK themes or icon packs are included.
+
+The setup uses the stock Adwaita GTK appearance and the default system icons used by Thunar.
+
+This keeps the environment simple and avoids extra theme and icon dependencies.
+
 ## nsxiv
 
 The repository contains configuration and helper files for `nsxiv`.
 
-`nsxiv` itself is **compiled from source from my GitHub repository** by `dwm-install`; it is not installed from the Arch Linux repositories.
+`nsxiv` itself is **compiled from source from my GitHub repository** by `dwm-install`; it is not installed from the Arch Linux or Debian repositories.
 
 Source:
 
