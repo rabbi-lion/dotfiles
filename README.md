@@ -122,8 +122,6 @@ This includes:
 - image-scaling shaders
 - a script for moving the current file to Trash
 
-The included shaders retain their original licenses and attribution.
-
 ## st helpers
 
 The repository contains:
