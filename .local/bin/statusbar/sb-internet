@@ -1,0 +1,22 @@
+#!/bin/sh
+
+case "$BLOCK_BUTTON" in
+	1) setsid -f st -e nmtui ;;
+esac
+
+wifi="$(nmcli -t -f ACTIVE,SSID,SIGNAL dev wifi 2>/dev/null |
+	awk -F: '$1 == "yes" { print $2 " " $3 "%"; exit }')"
+
+if [ -n "$wifi" ]; then
+	printf "WIFI %s\n" "$wifi"
+	exit
+fi
+
+ethernet="$(nmcli -t -f DEVICE,TYPE,STATE device status 2>/dev/null |
+	awk -F: '$2 == "ethernet" && $3 == "connected" { print $1; exit }')"
+
+if [ -n "$ethernet" ]; then
+	printf "ETH %s\n" "$ethernet"
+else
+	printf "NET off\n"
+fi

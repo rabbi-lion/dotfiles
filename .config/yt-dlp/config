@@ -1,0 +1,2 @@
+-o "~/Downloads/%(title)s.%(ext)s"
+--no-playlist

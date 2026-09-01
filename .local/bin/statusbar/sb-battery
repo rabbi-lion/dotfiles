@@ -1,0 +1,27 @@
+#!/bin/sh
+
+case "$BLOCK_BUTTON" in
+	1) setsid -f st -e sh -c 'watch -n 2 "cat /sys/class/power_supply/BAT*/{status,capacity,energy_now,energy_full,power_now} 2>/dev/null"' ;;
+esac
+
+bat="$(find /sys/class/power_supply -maxdepth 1 -type l -name 'BAT*' | head -n 1)"
+
+[ -z "$bat" ] && exit 0
+
+capacity="$(cat "$bat/capacity" 2>/dev/null)"
+status="$(cat "$bat/status" 2>/dev/null)"
+
+case "$status" in
+	Charging)
+		printf "BAT %s%%+\n" "$capacity"
+		;;
+	Full)
+		printf "BAT %s%%\n" "$capacity"
+		;;
+	Discharging)
+		printf "BAT %s%%-\n" "$capacity"
+		;;
+	*)
+		printf "BAT %s%%\n" "$capacity"
+		;;
+esac

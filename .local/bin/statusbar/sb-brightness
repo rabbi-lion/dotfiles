@@ -1,0 +1,14 @@
+#!/bin/sh
+
+case "$BLOCK_BUTTON" in
+	4) brightnessctl -q -c backlight set +5% ;;
+	5) brightnessctl -q -c backlight set 5%- ;;
+esac
+
+brightness="$(brightnessctl -m -c backlight 2>/dev/null | cut -d, -f4)"
+
+if [ -n "$brightness" ]; then
+	printf "BRI %s\n" "$brightness"
+else
+	printf "BRI ?\n"
+fi

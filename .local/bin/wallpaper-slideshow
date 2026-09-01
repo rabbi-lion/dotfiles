@@ -1,0 +1,29 @@
+#!/bin/bash
+
+DIR="$HOME/Pictures/Wallpapers/"
+DELAY=20
+FIFO="${XDG_RUNTIME_DIR:-/tmp}/wallpaper-slideshow-$UID.fifo"
+
+rm -f "$FIFO"
+mkfifo "$FIFO"
+exec 3<>"$FIFO"
+
+trap 'rm -f "$FIFO"' EXIT
+
+while true; do
+    mapfile -d '' wallpapers < <(
+        find "$DIR" -type f \( \
+            -iname '*.jpg' -o \
+            -iname '*.jpeg' -o \
+            -iname '*.png' -o \
+            -iname '*.webp' \
+        \) -print0 | shuf -z
+    )
+
+    for wallpaper in "${wallpapers[@]}"; do
+        feh --no-fehbg --bg-fill "$wallpaper"
+
+        # Continue after 20 seconds, or immediately when "next" is written.
+        read -r -t "$DELAY" <&3 || true
+    done
+done

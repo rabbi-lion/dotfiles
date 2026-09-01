@@ -1,0 +1,9 @@
+#!/bin/sh
+
+case "$1" in
+	Delete)
+		while IFS= read -r file; do
+			gio trash -- "$file"
+		done
+		;;
+esac

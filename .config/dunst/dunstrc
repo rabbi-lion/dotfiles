@@ -1,0 +1,32 @@
+[global]
+	font = IBM Plex Mono 12
+	origin = top-right
+	offset = (10, 10)
+	width = 320
+	height = (0, 300)
+	padding = 12
+	horizontal_padding = 12
+	frame_width = 1
+	frame_color = "#005577"
+	corner_radius = 6
+	separator_height = 0
+	progress_bar = false
+	format = "<b>%s</b>\n%b"
+	markup = full
+	alignment = left
+
+[urgency_low]
+	background = "#222222"
+	foreground = "#bbbbbb"
+	timeout = 5
+
+[urgency_normal]
+	background = "#222222"
+	foreground = "#bbbbbb"
+	timeout = 5
+
+[urgency_critical]
+	background = "#222222"
+	foreground = "#eeeeee"
+	frame_color = "#005577"
+	timeout = 0

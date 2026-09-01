@@ -1,0 +1,18 @@
+#!/bin/sh
+
+case "$BLOCK_BUTTON" in
+	1) setsid -f st -e pulsemixer ;;
+	2) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;;
+	4) wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%+ ;;
+	5) wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- ;;
+esac
+
+vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
+
+case "$vol" in
+	*"[MUTED]"*) printf "VOL mute\n" ;;
+	*)
+		vol="${vol#Volume: }"
+		awk -v v="$vol" 'BEGIN { printf "VOL %.0f%%\n", v * 100 }'
+		;;
+esac
