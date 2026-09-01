@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=nsxiv
+Exec=/home/leni/.local/bin/nsxiv-rifle %f
+Terminal=false
+NoDisplay=true
+MimeType=image/jpeg;image/png;image/gif;image/webp;image/bmp;image/tiff;image/svg+xml;image/avif;image/heif;image/jxl;
