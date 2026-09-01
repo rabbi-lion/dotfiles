@@ -1,7 +1,7 @@
 xrdb -merge ~/.Xresources
 
 redshift &
-~/.local/bin/wallpaper-slideshow &
+~/.local/bin/wallpaper &
 dunst &
 dwmblocks &
 xset b off

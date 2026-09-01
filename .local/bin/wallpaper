@@ -1,0 +1,10 @@
+#!/bin/sh
+
+WALLPAPER="$HOME/Pictures/Wallpapers/dante-et-vergil-dans-le-neuvieme-cercle-de-l'enfer.jpg"
+
+if [ ! -f "$WALLPAPER" ]; then
+    echo "Wallpaper not found: $WALLPAPER" >&2
+    exit 1
+fi
+
+exec feh --no-fehbg --bg-fill "$WALLPAPER"
