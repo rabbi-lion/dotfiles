@@ -1,0 +1,50 @@
+Third-party material
+====================
+
+The GNU GPLv3 license in this repository applies to original material
+made by rabbi-lion. Third-party material listed below retains its
+original license and attribution.
+
+
+mpv shaders
+-----------
+
+CAS.glsl
+
+AMD FidelityFX Contrast Adaptive Sharpening.
+Ported to mpv by agyild.
+Distributed under the permissive license included in the source file.
+Copyright Advanced Micro Devices, Inc.
+
+
+FSR.glsl
+
+AMD FidelityFX Super Resolution.
+Ported to mpv by agyild.
+Distributed under the permissive license included in the source file.
+Copyright Advanced Micro Devices, Inc.
+
+
+NVScaler.glsl
+NVSharpen.glsl
+
+NVIDIA Image Scaling.
+Ported to mpv by agyild.
+MIT License.
+Copyright NVIDIA CORPORATION & AFFILIATES.
+
+
+st helper scripts
+-----------------
+
+st-copyout
+
+From Luke Smith's st repository.
+MIT License.
+Original source credits Jaywalker and Luke.
+
+
+st-urlhandler
+
+From Luke Smith's st repository.
+MIT License.
