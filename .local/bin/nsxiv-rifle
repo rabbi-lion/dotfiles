@@ -1,51 +1,65 @@
 #!/bin/sh
 
-TMPDIR="${TMPDIR:-/tmp}"
-tmp="$TMPDIR/nsxiv_rifle_$$"
+# Made by rabbi-lion
+# License: GNU GPLv3
 
-is_img_extension() {
-    grep -iE '\.(jpe?g|png|gif|svg|jxl|webp|tiff|heif|avif|ico|bmp|pam|pbm|ppm|tga|qoi|ff)$'
-}
+set -eu
 
-listfiles() {
-    find -L "$1" -maxdepth 1 -type f -print |
-        is_img_extension | sort | tee "$tmp"
-}
+IMAGE_RE='\.(jpe?g|png|gif|svg|jxl|webp|tiff?|heif|heic|avif|ico|bmp|pam|pbm|pgm|ppm|tga|qoi|ff)$'
 
-open_img() {
-    file="$1"; shift;
-    # only go through listfiles() if the file has a valid img extension
-    if echo "$file" | is_img_extension >/dev/null 2>&1; then
-        trap 'rm -f $tmp' EXIT
-        count="$(listfiles "///${file%/*}" | grep -nF "$file")"
-    fi
-    if [ -n "$count" ]; then
-        nsxiv -i -n "${count%%:*}" "$@" < "$tmp"
-    else
-        # fallback incase file didn't have a valid extension, or we couldn't
-        # find it inside the list
-        nsxiv "$file" "$@"
-    fi
-}
-
-uri2path() {
-    python3 - "$@" <<'___HEREDOC'
-from urllib.parse import unquote, urlparse
+uri_path() {
+    python3 - "$1" <<'PY'
 from sys import argv
-for arg in argv[1:]:
-    print(unquote(urlparse(arg).path))
-___HEREDOC
+from urllib.parse import unquote, urlparse
+
+print(unquote(urlparse(argv[1]).path))
+PY
 }
 
-file="$1"; shift;
-case "$file" in
-    "") echo "Usage: ${0##*/} PICTURE [OPTIONS...]" >&2; exit 1 ;;
-    /*) open_img "$file" "$@" ;;
-    "~"/*) open_img "$HOME/${file#"~"/}" "$@" ;;
-    file:///*) open_img "$(uri2path "$file")" "$@" ;;
-    trash:///*)
-        trash_dir="${XDG_DATA_HOME:-$HOME/.local/share}/Trash/files"
-        open_img "${trash_dir}$(uri2path "$file")" -N "nsxiv_trash" "$@"
+open_from_directory() {
+    target=$1
+    shift
+
+    directory=${target%/*}
+    list=$(mktemp "${TMPDIR:-/tmp}/nsxiv-rifle.XXXXXX")
+    trap 'rm -f "$list"' EXIT HUP INT TERM
+
+    find -L "$directory" -maxdepth 1 -type f -print \
+        | grep -Ei "$IMAGE_RE" \
+        | LC_ALL=C sort > "$list" || true
+
+    number=$(awk -v file="$target" '$0 == file { print NR; exit }' "$list")
+
+    if [ -n "$number" ]; then
+        nsxiv -i -n "$number" "$@" < "$list"
+    else
+        nsxiv "$target" "$@"
+    fi
+}
+
+[ "$#" -gt 0 ] || {
+    printf 'Usage: %s PICTURE [OPTIONS...]\n' "${0##*/}" >&2
+    exit 1
+}
+
+input=$1
+shift
+
+case "$input" in
+    /*)
+        open_from_directory "$input" "$@"
         ;;
-    *) open_img "$PWD/$file" "$@" ;;
+    "~"/*)
+        open_from_directory "$HOME/${input#"~"/}" "$@"
+        ;;
+    file:///*)
+        open_from_directory "$(uri_path "$input")" "$@"
+        ;;
+    trash:///*)
+        trash_root="${XDG_DATA_HOME:-$HOME/.local/share}/Trash/files"
+        open_from_directory "${trash_root}$(uri_path "$input")" -N nsxiv_trash "$@"
+        ;;
+    *)
+        open_from_directory "$PWD/$input" "$@"
+        ;;
 esac
