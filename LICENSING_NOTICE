@@ -1,9 +1,11 @@
-Third-party material
-====================
+Licensing notice
+================
 
-The GNU GPLv3 license in this repository applies to original material
-made by rabbi-lion. Third-party material listed below retains its
-original license and attribution.
+The GNU General Public License version 3 in this repository applies to
+original material made by rabbi-lion.
+
+Third-party material retains its original copyright and license terms.
+The repository's GPLv3 license does not replace or alter those terms.
 
 
 mpv shaders
@@ -38,13 +40,27 @@ st helper scripts
 -----------------
 
 st-copyout
-
-From Luke Smith's st repository.
-MIT License.
-Original source credits Jaywalker and Luke.
-
-
 st-urlhandler
 
-From Luke Smith's st repository.
-MIT License.
+Taken from Luke Smith's st repository.
+st-copyout originally credits Jaywalker and Luke.
+Distributed under the MIT/X Consortium License.
+
+The following MIT/X Consortium license is retained for these files:
+
+[PASTE THE COMPLETE LICENSE FILE FROM THE SAME st REPOSITORY HERE]
+
+
+Wallpaper
+---------
+
+dante-et-vergil-dans-le-neuvieme-cercle-de-l'enfer.jpg
+
+Dante et Virgile dans le neuvieme cercle de l'Enfer
+(Dante and Virgil in the Ninth Circle of Hell).
+
+Painting by Gustave Dore, 1861.
+
+The artwork and the faithful photographic reproduction used in this
+repository are public domain.
+Source: Wikimedia Commons.
