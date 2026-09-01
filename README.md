@@ -133,7 +133,7 @@ The repository contains:
 .local/bin/st-urlhandler
 ```
 
-These are third-party helper scripts from Luke Smith's st repository and retain their original MIT/X Consortium license.
+These are third-party helper scripts from Luke Smith's st repository
 
 ## Firefox
 
