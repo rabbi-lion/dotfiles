@@ -1,9 +1,12 @@
 #!/bin/sh
 
-case "$1" in
-	Delete)
-		while IFS= read -r file; do
-			gio trash -- "$file"
-		done
-		;;
+# Made by rabbi-lion
+# License: GNU GPLv3
+
+case "${1:-}" in
+    Delete)
+        while IFS= read -r file; do
+            gio trash -- "$file"
+        done
+        ;;
 esac
