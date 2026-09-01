@@ -135,9 +135,7 @@ These are third-party helper scripts from Luke Smith's st repository and retain 
 
 Firefox configuration is deployed as a system policy from:
 
-```text
-system/etc/firefox/policies/policies.json
-```
+`system/etc/firefox/policies/policies.json`
 
 The policy configures privacy and interface preferences and installs:
 
@@ -146,13 +144,23 @@ The policy configures privacy and interface preferences and installs:
 - Enhancer for YouTube
 - I Still Don't Care About Cookies
 
+It also fixes file-picker behavior for the X11/dwm environment by setting:
+
+`widget.use-xdg-desktop-portal.file-picker = 0`
+
+This makes Firefox use its native file picker instead of the XDG desktop portal file picker.
+
 ## Thunderbird
 
 Thunderbird configuration is provided through:
 
-```text
-system/usr/lib/thunderbird/distribution/policies.json
-```
+`system/usr/lib/thunderbird/distribution/policies.json`
+
+The policy applies the same file-picker fix:
+
+`widget.use-xdg-desktop-portal.file-picker = 0`
+
+This makes Thunderbird use its native file picker instead of the XDG desktop portal file picker.
 
 ## Redshift
 
@@ -185,8 +193,6 @@ Wallpaper helpers are:
 .local/bin/wallpaper
 .local/bin/wallpaper-slideshow
 ```
-
-The included image is a public-domain reproduction from Wikimedia Commons.
 
 ## Repository layout
 
