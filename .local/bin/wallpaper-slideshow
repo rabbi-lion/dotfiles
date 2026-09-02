@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR="$HOME/Pictures/Wallpapers/"
+DIR="$HOME/Pictures/Wallpapers"
 DELAY=20
 FIFO="${XDG_RUNTIME_DIR:-/tmp}/wallpaper-slideshow-$UID.fifo"
 
