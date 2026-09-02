@@ -7,10 +7,24 @@ case "$BLOCK_BUTTON" in
 	5) wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- ;;
 esac
 
-vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
+vol=""
+
+i=0
+while [ "$i" -lt 20 ]; do
+	vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null)" || vol=""
+
+	[ -n "$vol" ] && break
+
+	sleep 0.25
+	i=$((i + 1))
+done
+
+[ -n "$vol" ] || exit 0
 
 case "$vol" in
-	*"[MUTED]"*) printf "VOL mute\n" ;;
+	*"[MUTED]"*)
+		printf "VOL mute\n"
+		;;
 	*)
 		vol="${vol#Volume: }"
 		awk -v v="$vol" 'BEGIN { printf "VOL %.0f%%\n", v * 100 }'
