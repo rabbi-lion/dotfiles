@@ -1,6 +1,6 @@
 #!/bin/sh
 
-WALLPAPER="$HOME/Pictures/Wallpapers/dante-et-vergil-dans-le-neuvieme-cercle-de-l'enfer.jpg"
+WALLPAPER="$HOME/Pictures/Wallpapers/aero-pharaoh.png"
 
 if [ ! -f "$WALLPAPER" ]; then
     echo "Wallpaper not found: $WALLPAPER" >&2
