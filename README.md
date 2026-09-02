@@ -203,7 +203,7 @@ dotfiles/
 ├── .config/
 ├── .local/
 ├── system/
-└── dante-et-vergil-dans-le-neuvieme-cercle-de-l'enfer.jpg
+└── aero-pharaoh.png
 ```
 
 ## Notes
