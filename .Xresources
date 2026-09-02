@@ -2,7 +2,7 @@
 
 !! Cursor
 Xcursor.theme: Vanilla-DMZ
-Xcursor.size: 24
+Xcursor.size: 32
 
 !! nsxiv
 Nsxiv.window.background: #020202
