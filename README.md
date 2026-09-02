@@ -81,14 +81,6 @@ internet | brightness | volume | battery | clock
 
 The blocks support signaling and mouse actions where applicable.
 
-## Appearance
-
-No third-party GTK themes or icon packs are included.
-
-The setup uses the stock Adwaita GTK appearance and the default system icons used by Thunar.
-
-This keeps the environment simple and avoids extra theme and icon dependencies.
-
 ## nsxiv
 
 The repository contains configuration and helper files for `nsxiv`.
