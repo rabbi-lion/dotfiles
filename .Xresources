@@ -1,28 +1,35 @@
 !! ~/.Xresources
 
+!! Cursor
+Xcursor.theme: Vanilla-DMZ
+Xcursor.size: 24
+
 !! nsxiv
-Nsxiv.window.background: #222222
+Nsxiv.window.background: #020202
 
 !! st
 st.alpha: 0.8
 
-!! Colors
-*.foreground: #eeeeee
-*.background: #222222
+!! Retro Theme Colors
+*.foreground: #eaeaea
+*.background: #041a1e
 
-*.color0:  #222222
-*.color1:  #cc241d
-*.color2:  #98971a
-*.color3:  #d79921
-*.color4:  #458588
-*.color5:  #b16286
-*.color6:  #689d6a
-*.color7:  #bbbbbb
-*.color8:  #444444
-*.color9:  #fb4934
-*.color10: #b8bb26
-*.color11: #fabd2f
-*.color12: #83a598
-*.color13: #d3869b
-*.color14: #8ec07c
-*.color15: #eeeeee
+!! Normal colors
+*.color0:  #041a1e
+*.color1:  #d85c5c
+*.color2:  #5fd787
+*.color3:  #d7af5f
+*.color4:  #5a81ff
+*.color5:  #af87d7
+*.color6:  #0e9491
+*.color7:  #eaeaea
+
+!! Bright colors
+*.color8:  #42605f
+*.color9:  #ff6b6b
+*.color10: #5fffd7
+*.color11: #ffd787
+*.color12: #87aaff
+*.color13: #d7afff
+*.color14: #01f2d1
+*.color15: #f4f4f4
