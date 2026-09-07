@@ -1,6 +1,6 @@
 #!/bin/sh
 
-WALLPAPER="$HOME/Pictures/Wallpapers/aero-pharaoh.png"
+WALLPAPER="$HOME/Pictures/Wallpapers/space.jpg"
 
 if [ ! -f "$WALLPAPER" ]; then
     echo "Wallpaper not found: $WALLPAPER" >&2
