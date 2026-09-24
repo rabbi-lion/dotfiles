@@ -1,30 +1,34 @@
 # dotfiles
 
-Configuration files and helper scripts for my dwm environment on Arch Linux and Debian.
+Configuration files and helper scripts for my dwm environment on
+Arch Linux and Debian.
 
-These dotfiles are primarily intended to be installed by my `dwm-install` scripts, but the repository can also be cloned and used manually.
+Primarily intended to be installed by my `dwm-install` scripts, but
+the repository can also be cloned and used manually.
 
 ## Installation
 
-The recommended method is to use:
+The recommended method is:
 
-```text
+```
 https://github.com/rabbi-lion/dwm-install
 ```
 
-The installer clones this repository temporarily, copies the required files into place and installs the system configuration where needed.
+The installer clones this repository temporarily, copies the required
+files into place, and installs the system configuration where needed.
 
-To clone the repository manually:
+To clone manually:
 
 ```sh
 git clone https://github.com/rabbi-lion/dotfiles.git
 ```
 
-Existing matching configuration files may be overwritten when deployed.
+Existing matching configuration files may be overwritten when
+deployed.
 
 ## Contents
 
-The repository contains configuration for:
+Configuration for:
 
 - bash
 - dunst
@@ -41,7 +45,7 @@ The repository contains configuration for:
 - yt-dlp
 - Zathura
 
-It also contains helper scripts for:
+Helper scripts for:
 
 - dwmblocks
 - nsxiv
@@ -50,11 +54,9 @@ It also contains helper scripts for:
 
 ## X session
 
-The graphical session is started through `.xinitrc`.
+The graphical session is started through `.xinitrc`, which launches:
 
-It launches:
-
-```text
+```
 Xresources
 Redshift
 wallpaper
@@ -69,13 +71,13 @@ Caps Lock and Escape are swapped for the X session.
 
 The dwmblocks scripts are stored in:
 
-```text
+```
 .local/bin/statusbar/
 ```
 
 The default status bar contains:
 
-```text
+```
 internet | brightness | volume | battery | clock
 ```
 
@@ -85,13 +87,17 @@ The blocks support signaling and mouse actions where applicable.
 
 The repository contains configuration and helper files for `nsxiv`.
 
-`nsxiv` itself is **compiled from source from my GitHub repository** by `dwm-install`; it is not installed from the Arch Linux or Debian repositories.
+`nsxiv` itself is compiled from source from my GitHub repository by
+`dwm-install`; it is not installed from the Arch Linux or Debian
+repositories.
 
 Source:
 
-`https://github.com/rabbi-lion/nsxiv`
+```
+https://github.com/rabbi-lion/nsxiv
+```
 
-Relevant dotfiles include:
+Relevant dotfiles:
 
 - `.config/nsxiv/exec/key-handler`
 - `.local/bin/nsxiv-rifle`
@@ -111,7 +117,7 @@ Stock nsxiv scaling behavior is preserved.
 
 mpv configuration is stored under:
 
-```text
+```
 .config/mpv/
 ```
 
@@ -126,73 +132,64 @@ This includes:
 
 The repository contains:
 
-```text
+```
 .local/bin/st-copyout
 .local/bin/st-urlhandler
 ```
 
-These are third-party helper scripts from Luke Smith's st repository
+These are third-party helper scripts from Luke Smith's st repository.
 
-## Firefox
+## Firefox and Thunderbird
 
-Firefox configuration is deployed as a system policy from:
+Both receive system policies from this repository:
 
-`system/etc/firefox/policies/policies.json`
+- Firefox: `system/etc/firefox/policies/policies.json`
+- Thunderbird: `system/usr/lib/thunderbird/distribution/policies.json`
 
-The policy configures privacy and interface preferences and installs:
+The policies fix file-picker behavior for the X11/dwm environment by
+setting:
+
+```
+widget.use-xdg-desktop-portal.file-picker = 0
+```
+
+This makes both applications use their native file pickers instead
+of the XDG desktop portal file picker.
+
+Firefox also gets privacy and interface preferences, plus:
 
 - uBlock Origin
 - Dark Reader
 - Enhancer for YouTube
 - I Still Don't Care About Cookies
 
-It also fixes file-picker behavior for the X11/dwm environment by setting:
-
-`widget.use-xdg-desktop-portal.file-picker = 0`
-
-This makes Firefox use its native file picker instead of the XDG desktop portal file picker.
-
-## Thunderbird
-
-Thunderbird configuration is provided through:
-
-`system/usr/lib/thunderbird/distribution/policies.json`
-
-The policy applies the same file-picker fix:
-
-`widget.use-xdg-desktop-portal.file-picker = 0`
-
-This makes Thunderbird use its native file picker instead of the XDG desktop portal file picker.
-
 ## Redshift
 
 Redshift configuration is stored in:
 
-```text
+```
 .config/redshift.conf
 ```
 
-The installer replaces the latitude and longitude placeholders with values supplied during installation.
+The installer replaces the latitude and longitude placeholders with
+values supplied during installation. Default temperatures:
 
-Default temperatures are:
-
-```text
+```
 Day:   6500 K
 Night: 4500 K
 ```
 
 ## Wallpaper
 
-Wallpaper helpers are:
+Wallpaper helper:
 
-```text
+```
 .local/bin/wallpaper
-.local/bin/wallpaper-slideshow
 ```
 
 ## Repository layout
 
-```text
+```
 dotfiles/
 ├── LICENSE
 ├── LICENSING_NOTICE
@@ -203,21 +200,24 @@ dotfiles/
 ├── .config/
 ├── .local/
 ├── system/
-└── aero-pharaoh.png
+└── space.jpg
 ```
 
 ## Notes
 
-These files are designed around my dwm setup and may overwrite existing configuration when installed.
+These files are designed around my dwm setup and may overwrite
+existing configuration when installed.
 
-Machine-specific configuration is intentionally kept outside this repository.
+Machine-specific configuration is intentionally kept outside this
+repository.
 
 ## License
 
 Made by rabbi-lion.
 
-Original material in this repository is licensed under the GNU General Public License version 3.
+Original material in this repository is licensed under the GNU
+General Public License version 3. See `LICENSE` for the full license
+text.
 
-See `LICENSE` for the full license text.
-
-Third-party material retains its original license and attribution. See `LICENSING_NOTICE` for details.
+Third-party material retains its original license and attribution.
+See `LICENSING_NOTICE` for details.
