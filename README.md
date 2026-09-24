@@ -187,22 +187,6 @@ Wallpaper helper:
 .local/bin/wallpaper
 ```
 
-## Repository layout
-
-```
-dotfiles/
-├── LICENSE
-├── LICENSING_NOTICE
-├── .bash_profile
-├── .bashrc
-├── .Xresources
-├── .xinitrc
-├── .config/
-├── .local/
-├── system/
-└── space.jpg
-```
-
 ## Notes
 
 These files are designed around my dwm setup and may overwrite
